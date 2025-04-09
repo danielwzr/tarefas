@@ -82,7 +82,7 @@
         const olHTML = document.getElementById("listaDeTarefas")
 
         async function baixarTarefas() {
-            var tarefas = await fetch("http://localhost:8080/tarefas") //faz a conexão
+            var tarefas = await fetch("https://tarefas-3svr.onrender.com/tarefas") //faz a conexão
             var listaDeTarefas = await tarefas.json() //converte a resposta para JSON
 
             olHTML.innerHTML = ""
@@ -103,7 +103,7 @@
             let tarefa = document.getElementById("tarefa").value
             let categoria = document.getElementById("categoria").value
             if (categoria) {
-                let req = await fetch("http://localhost:8080/tarefa", {
+                let req = await fetch("https://tarefas-3svr.onrender.com/tarefa", {
                     method: "POST", // metodo HTTP POST
                     headers: {
                         "Content-Type": "application/json",//Especifica que o conteudo é um OBJ JS
@@ -117,7 +117,7 @@
         }
 
         async function excluirTarefa(index) {
-            let req = await fetch("http://localhost:8080/tarefa/" + index,
+            let req = await fetch("https://tarefas-3svr.onrender.com/tarefa/" + index,
                 { method: "DELETE" })
             baixarTarefas()
         }
