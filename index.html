@@ -110,7 +110,7 @@
                     },
                     body: JSON.stringify({ tarefa, categoria })
                     //converte o VALUE recebido do INPUT para o CORPO DA REQUISICAO
-                }).then(res => res.ok && baixarTarefas())
+                }).then(res => res.ok && location.reload())
             }
 
             baixarTarefas()
@@ -118,7 +118,7 @@
 
         async function excluirTarefa(index) {
             let req = await fetch("https://tarefas-3svr.onrender.com/tarefa/" + index,
-                { method: "DELETE" }).then(res => res.ok && baixarTarefas())
+                { method: "DELETE" }).then(res => res.ok && location.reload())
             
         }
 
