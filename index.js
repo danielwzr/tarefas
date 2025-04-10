@@ -32,11 +32,13 @@ app.get("/tarefas", (req, res) => {
 
 app.post("/tarefa", (req, res) => {
     db.run(`INSERT INTO Tarefas (tarefa, categoria) VALUES (?, ?)`, [req.body.tarefa, req.body.categoria])
+    res.redirect("/home"); // Redireciona para a página principal após adicionar
 })
 
 app.delete("/tarefa/:id", (req, res) => {
     var id = req.params.id
     db.run(`DELETE FROM Tarefas WHERE id == (?)`, [id])
+    res.redirect("/home"); // Redireciona para a página principal após adicionar
 })
 
 app.get("/home", (req, res) => {
