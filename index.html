@@ -112,6 +112,7 @@
                     //converte o VALUE recebido do INPUT para o CORPO DA REQUISICAO
                 }).then(res => {
     if (res.ok) {
+        console.log("salva")
         window.location.href = '/home'; // Redireciona manualmente
     }
 });
@@ -124,6 +125,7 @@
             let req = await fetch("https://tarefas-3svr.onrender.com/tarefa/" + index,
                 { method: "DELETE" }).then(res => {
     if (res.ok) {
+            console.log("deletado")
         window.location.href = '/home'; // Redireciona manualmente
     }
 });
